@@ -10,7 +10,7 @@ class logstash (
   }
 
   yumrepo { 'logstash':
-    baseurl        => "http://packages.elasticsearch.org/logstash/${version}/${distro}'
+    baseurl        => "http://packages.elasticsearch.org/logstash/${version}/${distro}"
     failovermethod => 'priority',
     enabled        => '1',
     gpgcheck       => '1',
