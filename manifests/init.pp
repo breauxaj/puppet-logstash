@@ -20,7 +20,25 @@ class logstash (
 
   package { $required:
     ensure  => installed,
-    require => Yumrepo['logstash'],
+    require => [
+      Yumrepo['logstash'],
+      User['logstash'],
+      Group['logstash'],
+    ]
+  }
+
+  group { 'logstash':
+    ensure => present,
+    gid    => 3333,
+  }
+
+  user { 'logstash':
+    ensure     => present,
+    gid        => 3333,
+    home       => '/opt/logstash',
+    shell      => '/sbin/nologin',
+    managehome => true,
+    uid        => 3333,
   }
 
 }
