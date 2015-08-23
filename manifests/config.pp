@@ -10,7 +10,7 @@ define logstash::config (
     ensure  => present,
     owner   => 'root',
     group   => 'root',
-    mode    => '0440',
+    mode    => '0644',
     content => template('logstash/conf.erb'),
   }
 
